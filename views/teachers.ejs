@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head')%>
+        <link rel="stylesheet" href="./css/teachers.css">
+</head>
+
+
+<body>
+    <section id="homePage">
+        <div class="homePage" id="home">
+            <nav class="navigation">
+                <div class="navImg">
+                    <img src="./imgs/LogoChess.png" alt="Logo">
+                </div>
+                <div class="navButton" onclick="showMenu()">
+                    <img src="./imgs/menu.png" alt="Menu">
+                </div>
+                <div id="navList" class="navList">
+                    <ul>
+                        <li>
+                            <a href='index.html#home'>Нүүр</a>
+                        </li>
+                        <li>
+                            <a href='index.html#enviroment'>Орчин</a>
+                        </li>
+                        <li>
+                            <a href='index.html#teachers'>Дасгалжуулагч</a>
+                        </li>
+                        <li>
+                            <a href='index.html#priority'>Онцлог</a>
+                        </li>
+
+                        <li>
+                            <a href='index.html#lesson'>Сургалт</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container">
+
+                <% teachers.forEach(function(data) { %>
+
+                    <div class="teacherContainer" id="<%= data.id %>">
+
+                        <div class="teacherContainerLeft">
+                            <div class="circle">
+                                <div class="imageback">
+                                    <div class="image">
+                                        <img src="<%= data.img %> " alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="name">
+                                <%= data.name %>
+                            </div>
+
+
+                            <div class="details">
+                                <age><span><% data.age %> </span> Настай</age>
+                                <bar></bar>
+
+                            </div>
+
+                        </div>
+
+                        <div class="teacherContainerRight">
+                            <div class="temp">
+                                <% data.achievement.forEach(function (data) {%>
+                                    <p>
+                                        <%= data.data %>
+                                    </p>
+                                    <%})%>
+                                        <h1 style="font-weight: bold;font-size: 16px;">Ажлын туршлага:</h1>
+                                        <% data.experience.forEach(function (data) {%>
+                                            <p>
+                                                <%= data.list %>
+                                            </p>
+                                            <%})%>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <% });%>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js "></script>
+    <script src="./js/swiper.js "></script>
+
+</body>
+
+</html>
